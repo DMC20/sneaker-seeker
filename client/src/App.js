@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
@@ -20,13 +23,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-        {/* Navbar will here with the other components */}
-        <Switch>
-
-
+        <div>
+          {/* Navbar will here with the other components */}
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
           </Switch>
-        </>
+        </div>
       </Router>
     </ApolloProvider>
   );
