@@ -1,34 +1,43 @@
 import React from "react";
-import { BrowserRoute as Router, Route, Switch } from 'react-router-dom';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import ApolloClient from 'apollo-boost';
+// import { ApolloProvider } from '@apollo/react-hooks';
 
-const client = new ApolloCient({
-  request: operation => {
-    const token = localStorage.getItem('id_token');
+import About from "./components/About";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import SignInSide from "./components/SignIn";
 
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
-    });
-  },
-  uri: '/graphql'
-})
+// const client = new ApolloClient({
+//   request: operation => {
+//     const token = localStorage.getItem('id_token');
+
+//     operation.setContext({
+//       headers: {
+//         authorization: token ? `Bearer ${token}` : ''
+//       }
+//     });
+//   },
+//   uri: '/graphql'
+// })
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    // <ApolloProvider client={client}>
       <Router>
-        <>
-        {/* Navbar will here with the other components */}
-        <Switch>
+        <Nav />
+        {/* <Switch> */}
+        <div>
+          <Route exact path='/' component={About}/>
 
 
-          </Switch>
-        </>
+          <Route exact path='/SignIn' component={SignInSide} />
+
+        {/* </Switch> */}
+        </div>
+        <Footer />
       </Router>
-    </ApolloProvider>
+    // </ApolloProvider>
   );
 }
 
