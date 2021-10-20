@@ -1,9 +1,9 @@
 import React from "react";
-import { BrowserRoute as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-const client = new ApolloCient({
+const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
 
