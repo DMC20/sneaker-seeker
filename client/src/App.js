@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import SearchShoes from "./pages/SearchShoes";
 
 const client = new ApolloClient({
   request: operation => {
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/search" component={SearchShoes} />
           </Switch>
         </div>
       </Router>
