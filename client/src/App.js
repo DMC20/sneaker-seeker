@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import About from "./components/About";
 import Footer from "./components/Footer";
+import Home from './components/Home';
 import Nav from "./components/Nav";
 import SignInSide from "./components/SignIn";
 
@@ -28,9 +29,8 @@ function App() {
         <Nav />
         {/* <Switch> */}
         <div>
-          <Route exact path='/' component={About}/>
-
-
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/About' component={About}/>
           <Route exact path='/SignIn' component={SignInSide} />
 
         {/* </Switch> */}
