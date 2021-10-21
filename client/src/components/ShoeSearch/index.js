@@ -18,7 +18,6 @@ function SearchShoes(props) {
         })
         .then(
             function(response) {
-               // Examine the text in the response
                 response.json().then(function(data) {
                     console.log(data);
                     let shoeSection = document.querySelector('#shoe-section');
