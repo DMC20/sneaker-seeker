@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Home from './components/Home';
 import Nav from "./components/Nav";
 import SignInSide from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 // const client = new ApolloClient({
 //   request: operation => {
@@ -32,6 +33,7 @@ function App() {
           <Route exact path='/' component={Home}/>
           <Route exact path='/About' component={About}/>
           <Route exact path='/SignIn' component={SignInSide} />
+          <Route exact path='/SignUp' component={SignUp} />
 
         {/* </Switch> */}
         </div>

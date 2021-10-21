@@ -62,6 +62,7 @@ const Nav = () => {
                     <Button color='inherit' component={Link} to='/'>Shop All</Button>
                     <Button color='inherit' component={Link} to='/About'>About</Button>
                     <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
+                    <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     <Search>
                         <SearchIconWrapper>
                         <SearchIcon />

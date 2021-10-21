@@ -19,13 +19,7 @@ const Copyright = () => {
 
 const Footer = () => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
+
       <Box
         component="footer"
         sx={{
@@ -45,7 +39,6 @@ const Footer = () => {
           <Copyright />
         </Container>
       </Box>
-    </Box>
   );
 }
 
