@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "if-env": "^1.0.4"
   },
   "devDependencies": {
