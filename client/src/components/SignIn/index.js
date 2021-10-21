@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import jordan from '../../assets/sign-in.jpg'
 
 // import SignInImage from '../../assets/images/sign-in.jpg'
 
@@ -51,7 +52,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            // backgroundImage: `url(${SignInImage})`,
+            backgroundImage: `url(${jordan})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -73,7 +74,7 @@ export default function SignInSide() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Log in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
