@@ -4,7 +4,7 @@
 A website where users can search for and find rare shoes for purchase
 
 ## Deployed website
-
+https://sneaker-seeker.herokuapp.com/
 
 ## Models 
 
