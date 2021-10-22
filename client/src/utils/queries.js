@@ -1,6 +1,4 @@
-import { gql } from '@apollo-boost';
-
-// import { gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const QUERY_PRODUCTS = gql`
   query getProducts($brand: ID) {
