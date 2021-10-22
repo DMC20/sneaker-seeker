@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Nav from "./components/Nav";
 import SignInSide from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import { StoreProvider } from "./utils/GlobalState";
 
 // const client = new ApolloClient({
 //   request: operation => {
