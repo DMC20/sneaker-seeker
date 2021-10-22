@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { positions } from '@mui/system';
 
 const Nav = () => {
     const Search = styled('div')(({ theme }) => ({
@@ -55,12 +56,12 @@ const Nav = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position='static'>
                 <Toolbar>
-                    <Typography variant='h4' sx={{ flexGrow: 4 }}>
-                       Sneaker Seeker
+                    <Typography variant='h1' sx={{ flexGrow: 4 }} class="header">
+                        Sneaker Seeker
                     </Typography>
                     <Button color='inherit' component={Link} to='/'>Home</Button>
                     <Button color='inherit' component={Link} to='/'>Shop All</Button>
-                    <Button color='inherit' component={Link} to='/About'>About</Button>
+                    <Button olor='inherit' component={Link} to='/About'>About</Button>
                     <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     <Search>

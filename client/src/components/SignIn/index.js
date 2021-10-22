@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import jordan from '../../assets/sign-in.jpg'
 
-// import SignInImage from '../../assets/images/sign-in.jpg'
 
 function Copyright(props) {
   return (
