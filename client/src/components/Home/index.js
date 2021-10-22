@@ -25,6 +25,7 @@ const Home = () => {
                     component="img"
                     alt="Air Jordan 1 OG Chicago"
                     height="300"
+                    width="440"
                     image={AirJordan}
                 />
 
