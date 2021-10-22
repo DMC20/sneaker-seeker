@@ -15,9 +15,8 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Home from './components/Home';
 import Nav from "./components/Nav";
-import SignInSide from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import { StoreProvider } from "./utils/GlobalState";
+import SignInSide from './Pages/SignIn';
+import SignUp from './Pages/SignUp'
 
 // const client = new ApolloClient({
 //   request: operation => {

@@ -1,62 +1,40 @@
-import { gql } from '@apollo/client';
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts($brand: ID) {
-    products(brand: $brand) {
-      _id
-      name
-      description
-      price
-      quantity
-      image
-      brand {
-        _id
-      }
-    }
-  }
-`;
-
-export const QUERY_ALL_PRODUCTS = gql`
-  {
-    products {
-      _id
-      name
-      description
-      price
-      quantity
-      brand {
-        name
-      }
-    }
-  }
-`;
-
-export const QUERY_BRANDS = gql`
-  {
-    brands {
-      _id
-      name
-    }
-  }
-`;
+import gql from 'graphql-tag';
 
 export const QUERY_USER = gql`
-  {
+{
     user {
-      firstName
-      lastName
-      orders {
-        _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
+        firstName
+        lastName
+        orders {
+            _id
+            purchaseDate
+            products {
+                _id
+                name
+                description
+                price
+                quantity
+                image
+            }
         }
-      }
     }
-  }
+}
 `;
+
+import { gql } from 'graphql-tag';
+
+export const QUERY_ME = gql `
+{
+    query {
+       products
+       product
+       user
+       order
+       checkout
+       brands {
+           _id
+           name
+       }
+}`;
+
