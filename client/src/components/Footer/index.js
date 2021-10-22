@@ -3,12 +3,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
+import GitHubIcon from '@mui/icons-material/GitHub';;
 
 const Copyright = () => {
   return (
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://github.com/DMC20/sneaker-seeker" target="_blank">
         Sneaker Seeker
       </Link>{' '}
       {new Date().getFullYear()}
@@ -32,9 +33,10 @@ const Footer = () => {
               : theme.palette.grey[800],
         }}
       >
-        <Container maxWidth="sm">
-          <Typography variant="body1">
-            Follow Us
+        <Container maxWidth="xs">
+          <Typography variant="h5">
+            Follow Us On
+            <GitHubIcon style={{ marginLeft: '5px' }}/>
           </Typography>
           <Copyright />
         </Container>
