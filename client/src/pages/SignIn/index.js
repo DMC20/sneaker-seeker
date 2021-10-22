@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import jordan from '../../assets/sign-in.jpg'
 
-<<<<<<< HEAD:client/src/components/SignIn/index.js
 
 function Copyright(props) {
   return (
@@ -28,8 +27,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-=======
->>>>>>> f45172e39bc75e34635be23904101724b2f483a6:client/src/pages/SignIn/index.js
 
 const theme = createTheme();
 
