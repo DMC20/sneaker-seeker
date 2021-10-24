@@ -123,8 +123,8 @@ class Home extends React.Component {
         this.setState(changeObject);
     }
     cart(shoe) {
-        console.log(this) 
         console.log(shoe)
+        console.log(shoe.id)
     }
 
     render() {
@@ -228,7 +228,7 @@ class Home extends React.Component {
                                     <p class="card-title">Gender: {shoe.gender}</p>
 
                                     <CardActions>
-                                        <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe.id)}> Add to cart</Button>
+                                        <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
                                     </CardActions>
                                 </Card>
 
