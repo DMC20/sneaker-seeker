@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from 'apollo-boost';
+
+// components -- pages // 
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Home from './components/Home';
