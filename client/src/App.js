@@ -7,8 +7,8 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Home from './components/Home';
 import Nav from "./components/Nav";
-import SignInSide from './Pages/SignIn';
-import SignUp from './Pages/SignUp'
+import SignInSide from './pages/SignIn';
+import SignUp from './pages/SignUp'
 
 // const client = new ApolloClient({
 //   request: operation => {
