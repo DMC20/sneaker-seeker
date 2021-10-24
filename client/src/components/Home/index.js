@@ -13,7 +13,7 @@ import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
 
-
+const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 
 class Home extends React.Component {
     constructor(props) {
@@ -29,7 +29,8 @@ class Home extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            "x-rapidapi-key": kkey
             }
         })
         .then(response => response.json())
@@ -50,7 +51,8 @@ class Home extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            "x-rapidapi-key": kkey
             }
         })
         .then(response => response.json())
@@ -71,7 +73,8 @@ class Home extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            "x-rapidapi-key": kkey
             }
         })
         .then(response => response.json())
@@ -92,7 +95,8 @@ class Home extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+            "x-rapidapi-key": kkey
             }
         })
         .then(response => response.json())
