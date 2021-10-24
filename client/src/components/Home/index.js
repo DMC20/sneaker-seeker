@@ -139,8 +139,8 @@ class Home extends React.Component {
                                 class="air-jordan"
                                 component="img"
                                 alt="Air Jordan 1 OG Chicago"
-                                height="300"
-                                width="440"
+                                height="50%"
+                                width="100%"
                                 image={AirJordan}
                             />
 
@@ -155,7 +155,8 @@ class Home extends React.Component {
                             <CardMedia
                                 component="img"
                                 alt="Adidas Yeezy"
-                                height="300"
+                                height="100%"
+                                width="100%"
                                 image={Yeezy}
                             />
                             
@@ -170,7 +171,8 @@ class Home extends React.Component {
                             <CardMedia
                                 component="img"
                                 alt="note pad"
-                                height="300"
+                                height="100%"
+                                width="100%"
                                 image={NikeDunk}
                             />
                         
@@ -185,7 +187,8 @@ class Home extends React.Component {
                             <CardMedia
                                 component="img"
                                 alt="vans"
-                                height="300"
+                                height="100%"
+                                width="100%"
                                 image={Vans}
                             />
                         
@@ -204,8 +207,14 @@ class Home extends React.Component {
                         {shoes && shoes.results.map(shoe => {
                             console.log(shoes)
                             console.log(shoe.id)
-                                    return <Box>
-                                        <img src={shoe.image.thumbnail} />
+                                    return <Card>
+                                <CardMedia
+                                component="img"
+                                height="100%"
+                                width="100%"
+                                src={shoe.image.thumbnail}
+                                />
+                                        {/* <img src={shoe.image.thumbnail} /> */}
                                         <h3 class="card-title">Brand: {shoe.brand}</h3>
                                         <h4 class="card-title">Name: {shoe.name}</h4>
                                         <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
@@ -213,12 +222,18 @@ class Home extends React.Component {
                                         <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
                                         <p class="card-title">Description: {shoe.story}</p>
                                         <p class="card-title">Gender: {shoe.gender}</p>
-                                </Box>
-                                    // <tr>
-                                    //     <td>{shoe.name}</td>
-                                    //     <td>{shoe.estimatedMarketValue}</td>
-                                    //     <td>{shoe.story}</td>
-                                    // </tr>
+                                </Card>
+
+// return <Box>
+// <img src={shoe.image.thumbnail} />
+// <h3 class="card-title">Brand: {shoe.brand}</h3>
+// <h4 class="card-title">Name: {shoe.name}</h4>
+// <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+// <h5 class="card-title">Color: {shoe.colorway}</h5>
+// <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
+// <p class="card-title">Description: {shoe.story}</p>
+// <p class="card-title">Gender: {shoe.gender}</p>
+// </Box>
                                     
                                 })}
 
