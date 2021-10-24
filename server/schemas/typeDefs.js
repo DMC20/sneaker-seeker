@@ -40,16 +40,18 @@ const typeDefs = gql`
     }
 
     type Query {
-        brands: [Brand]
+        categories: [Brand]
         products(brand: ID, name: String): [Product]
         product(_id: ID!): Product
         user: User
         order(_id: ID!): Order
         checkout(products: [ID]!): Checkout
     }
+    
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+        updateUser(firstName: String, lastName: String, email: String, password: String): User
     }
 `;
 
