@@ -11,14 +11,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
-import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/react-hooks';
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
-
-const theme = createTheme();
-
-function SignUp(props) {
+function Signup() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
@@ -29,8 +26,8 @@ function SignUp(props) {
         email: formState.email,
         password: formState.password,
         firstName: formState.firstName,
-        lastName: formState.lastName
-      }
+        lastName: formState.lastName,
+      },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
@@ -40,10 +37,11 @@ function SignUp(props) {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
+  const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,7 +61,7 @@ function SignUp(props) {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form"  onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
+          <Box component="form" sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -117,6 +115,7 @@ function SignUp(props) {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onSubmit={handleFormSubmit}
             >
               Sign Up
             </Button>
@@ -134,4 +133,4 @@ function SignUp(props) {
   );
 };
 
-export default SignUp;
+export default Signup;

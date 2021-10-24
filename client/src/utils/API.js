@@ -1,6 +1,6 @@
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
-    return fetch('/api/user/me', {
+    return fetch('/api/users/me', {
         headers: {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
@@ -9,7 +9,7 @@ export const getMe = (token) => {
 };
   
 export const createUser = (userData) => {
-    return fetch('/api/user', {
+    return fetch('/api/SignUp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export const createUser = (userData) => {
 };
   
 export const loginUser = (userData) => {
-    return fetch('/api/user/login', {
+    return fetch('/api/users/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
