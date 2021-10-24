@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,19 +11,39 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
+
 
 const theme = createTheme();
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
+function SignUp(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName
+      }
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value
     });
   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -43,7 +63,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form"  onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -54,6 +74,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -64,6 +85,7 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,6 +96,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -85,6 +108,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={handleChange}
                 />
               </Grid>
             </Grid>
@@ -108,4 +132,6 @@ export default function SignUp() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignUp;
