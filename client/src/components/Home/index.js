@@ -207,7 +207,7 @@ class Home extends React.Component {
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
                                 console.log(shoe.id)
-                                return <Card elevation={3}>
+                                return <Card elevation={3} spacing={3}>
                                     <CardMedia
                                         component="img"
                                         height="100%"
@@ -222,6 +222,10 @@ class Home extends React.Component {
                                     <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
                                     <p class="card-title">Description: {shoe.story}</p>
                                     <p class="card-title">Gender: {shoe.gender}</p>
+
+                                    <CardActions>
+                                        <Button variant='contained' size='large' type='button' onClick={(e) => console.log("addto cart id: ")}> Add to cart</Button>
+                                    </CardActions>
                                 </Card>
 
                                 // return <Box>
