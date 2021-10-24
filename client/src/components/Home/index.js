@@ -12,6 +12,7 @@ import { positions } from '@mui/system';
 import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
+import Vans from '../../assets/vans.jpg';
 
 const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 
@@ -174,6 +175,21 @@ class Home extends React.Component {
                         </Card>
                     </Grid>
 
+                    <Grid item xs={4}>
+                        <Card xs={{ maxWidth: 150 }} elevation={3}>
+                            <CardMedia
+                                component="img"
+                                alt="vans"
+                                height="300"
+                                image={Vans}
+                            />
+                        
+                            <CardActions>
+                                <Button variant ='contained' size='large' type='button' onClick={(e) => this.shoeSearchVans(e)}> Search All Vans</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
                 </Grid>
 
 
@@ -181,9 +197,9 @@ class Home extends React.Component {
                     <Grid item  xs={4}>
                         <h1 headerAlign="center">Search Result</h1>
                         <form className="d-flex flex-column">
-                        <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
+                        {/* <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
                                 Vans
-                            </button>
+                            </button> */}
                             
                     
                                 {this.state.shoes && this.state.shoes.results.map(shoe => {
