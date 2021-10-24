@@ -42,6 +42,7 @@ class Home extends React.Component {
             console.log(response)
             console.log(response.results)
             console.log(this.state);
+            console.log(this.state.shoes);
         })
         .catch(err => {
             console.log(err);
@@ -64,6 +65,7 @@ class Home extends React.Component {
             console.log(response)
             console.log(response.results)
             console.log(this.state);
+            console.log(this.state.shoes);
         })
         .catch(err => {
             console.log(err);
@@ -86,6 +88,7 @@ class Home extends React.Component {
             console.log(response)
             console.log(response.results)
             console.log(this.state);
+            console.log(this.state.shoes);
         })
         .catch(err => {
             console.log(err);
@@ -108,6 +111,7 @@ class Home extends React.Component {
             console.log(response)
             console.log(response.results)
             console.log(this.state);
+            console.log(this.state.shoes);
         })
         .catch(err => {
             console.log(err);
@@ -120,8 +124,9 @@ class Home extends React.Component {
     }
 
     render() {
+        const {shoes} = this.state;
+        console.log(shoes)
         return (
-
             <Box sx={{ flexGrow: 1 }} marginTop={2} >
                 <h1>Popular Shoes</h1>
 
@@ -192,17 +197,33 @@ class Home extends React.Component {
 
                 </Grid>
 
-
                 <Grid container spacing={2}>
                     <Grid item  xs={4}>
                         <h1 headerAlign="center">Search Result</h1>
                         <form className="d-flex flex-column">
-                        {/* <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
-                                Vans
-                            </button> */}
-                            
-                    
-                                {this.state.shoes && this.state.shoes.results.map(shoe => {
+                        {shoes && shoes.results.map(shoe => {
+                            console.log(shoes)
+                            console.log(shoe.id)
+                                    return <Box>
+                                        <img src={shoe.image.thumbnail} />
+                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
+                                        <h4 class="card-title">Name: {shoe.name}</h4>
+                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
+                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
+                                        <p class="card-title">Description: {shoe.story}</p>
+                                        <p class="card-title">Gender: {shoe.gender}</p>
+                                </Box>
+                                    // <tr>
+                                    //     <td>{shoe.name}</td>
+                                    //     <td>{shoe.estimatedMarketValue}</td>
+                                    //     <td>{shoe.story}</td>
+                                    // </tr>
+                                    
+                                })}
+
+                                {/* Original */}
+                                {/* {this.state.shoes && this.state.shoes.results.map(shoe => {
                                     return <Box>
                                     <Box>
                                         <img src={shoe.image.thumbnail} />
@@ -221,23 +242,15 @@ class Home extends React.Component {
                                     //     <td>{shoe.story}</td>
                                     // </tr>
                                     
-                                })}
+                                })} */}
                         </form>
                     </Grid>
                 </Grid>
             </Box>
 
-          
-
-
-
-
-
         );
-
 
     }
 };
-
 
 export default Home;
