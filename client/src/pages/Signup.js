@@ -16,28 +16,43 @@ import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 function Signup() {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
+  const [validated] = useState(false);
+
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData }
+      });
+
+      if (error) throw new Error('something went wrong!');
+
+      Auth.login(data.addUser.token);
+      
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
     });
   };
 
@@ -61,7 +76,7 @@ function Signup() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" sx={{ mt: 3 }}>
+          <Box component="form" sx={{ mt: 3 }} noValidate validated={validated}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -72,7 +87,8 @@ function Signup() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  onChange={handleChange}
+                  value={userFormData.firstName}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -83,7 +99,8 @@ function Signup() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                  onChange={handleChange}
+                  value={userFormData.lastName}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -94,7 +111,8 @@ function Signup() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  onChange={handleChange}
+                  value={userFormData.email}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -106,11 +124,13 @@ function Signup() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                  onChange={handleChange}
+                  value={userFormData.password}
+                  onChange={handleInputChange}
                 />
               </Grid>
             </Grid>
             <Button
+              disabled={!(userFormData.firstName && userFormData.lastName && userFormData.email && userFormData.password)}
               type="submit"
               fullWidth
               variant="contained"

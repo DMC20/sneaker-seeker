@@ -1,15 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from 'apollo-boost';
+import {
+  ApolloClient,
+  ApolloProvider,
+} from '@apollo/client';
 
 // components -- pages // 
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Home from './components/Home';
 import Nav from "./components/Nav";
-import SignInSide from './Pages/SignIn';
-import SignUp from './Pages/Signup'
+import SignInSide from './pages/SignIn';
+import SignUp from './pages/Signup'
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -24,12 +26,11 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <div>
+      <>
         <Nav />
         <Switch>
           <Route exact path='/' component={Home}/>
@@ -37,7 +38,7 @@ function App() {
           <Route exact path='/SignIn' component={SignInSide} />
           <Route exact path='/SignUp' component={SignUp} />
         </Switch>
-        </div>
+        </>
         <Footer />
       </Router>
      </ApolloProvider>
