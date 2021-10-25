@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import reducers from "../../utils/reducers"
 // import $ from 'jquery';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -15,8 +16,10 @@ import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
 import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
+import Vans from '../../assets/vans.jpg';
 
 
+const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 
 class Home extends React.Component {
     constructor(props) {
@@ -31,100 +34,113 @@ class Home extends React.Component {
         fetch(`https://the-sneaker-database.p.rapidapi.com/search?limit=20&query=Vans`, {
             "method": "GET",
             "headers": {
-            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+                // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-key": kkey
             }
         })
-        .then(response => response.json())
-        .then(response => {
-            this.setState({
-                shoes: response
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    shoes: response
+                })
+                console.log(response)
+                console.log(response.results)
+                console.log(this.state);
+                console.log(this.state.shoes);
             })
-            console.log(response)
-            console.log(response.results)
-            console.log(this.state);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            .catch(err => {
+                console.log(err);
+            });
     }
     shoeSearchJordans() {
         fetch(`https://the-sneaker-database.p.rapidapi.com/search?limit=20&query=Jordans`, {
             "method": "GET",
             "headers": {
-            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+                // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-key": kkey
             }
         })
-        .then(response => response.json())
-        .then(response => {
-            this.setState({
-                shoes: response
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    shoes: response
+                })
+                console.log(response)
+                console.log(response.results)
+                console.log(this.state);
+                console.log(this.state.shoes);
             })
-            console.log(response)
-            console.log(response.results)
-            console.log(this.state);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            .catch(err => {
+                console.log(err);
+            });
     }
     shoeSearchYeezy() {
         fetch(`https://the-sneaker-database.p.rapidapi.com/search?limit=20&query=Yeezy`, {
             "method": "GET",
             "headers": {
-            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+                // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-key": kkey
             }
         })
-        .then(response => response.json())
-        .then(response => {
-            this.setState({
-                shoes: response
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    shoes: response
+                })
+                console.log(response)
+                console.log(response.results)
+                console.log(this.state);
+                console.log(this.state.shoes);
             })
-            console.log(response)
-            console.log(response.results)
-            console.log(this.state);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            .catch(err => {
+                console.log(err);
+            });
     }
     shoeSearchNike() {
         fetch(`https://the-sneaker-database.p.rapidapi.com/search?limit=20&query=Nike`, {
             "method": "GET",
             "headers": {
-            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+                // "x-rapidapi-key": "d2ed8dea59msh9a4992883c5f9e0p194de4jsn78aad5a8e251"
+                "x-rapidapi-key": kkey
             }
         })
-        .then(response => response.json())
-        .then(response => {
-            this.setState({
-                shoes: response
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    shoes: response
+                })
+                console.log(response)
+                console.log(response.results)
+                console.log(this.state);
+                console.log(this.state.shoes);
             })
-            console.log(response)
-            console.log(response.results)
-            console.log(this.state);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     handleChange(changeObject) {
         console.log(changeObject.target.value);
         this.setState(changeObject);
     }
+    cart(shoe) {
+        console.log(shoe)
+        console.log(shoe.id)
+    }
 
     render() {
+        const { shoes } = this.state;
+        console.log(shoes)
         return (
-
             <Box sx={{ flexGrow: 1 }} marginTop={2} >
                 <h1>Popular Shoes</h1>
 
                 {/* Initial box for popular search */}
-                <Grid container spacing = 'center' spacing={8} >
+                <Grid container spacing='center' spacing={5} >
                     {/* Nike Air Jordan */}
                     <Grid item xs={4}>
                         <Card xs={{ maxWidth: 400 }} elevation={3}>
@@ -132,8 +148,8 @@ class Home extends React.Component {
                                 class="air-jordan"
                                 component="img"
                                 alt="Air Jordan 1 OG Chicago"
-                                height="300"
-                                width="440"
+                                height="100%"
+                                width="100%"
                                 image={AirJordan}
                             />
 
@@ -148,12 +164,13 @@ class Home extends React.Component {
                             <CardMedia
                                 component="img"
                                 alt="Adidas Yeezy"
-                                height="300"
+                                height="100%"
+                                width="100%"
                                 image={Yeezy}
                             />
-                            
+
                             <CardActions>
-                                <Button variant = 'contained' size="large" type='button' onClick={(e) => this.shoeSearchYeezy(e)}> Search All Yeezys</Button>
+                                <Button variant='contained' size="large" type='button' onClick={(e) => this.shoeSearchYeezy(e)}> Search All Yeezys</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -163,96 +180,105 @@ class Home extends React.Component {
                             <CardMedia
                                 component="img"
                                 alt="note pad"
-                                height="300"
+                                height="100%"
+                                width="100%"
                                 image={NikeDunk}
                             />
-                        
+
                             <CardActions>
-                                <Button variant ='contained' size='large' type='button' onClick={(e) => this.shoeSearchNike(e)}> Search All Nike</Button>
+                                <Button variant='contained' size='large' type='button' onClick={(e) => this.shoeSearchNike(e)}> Search All Nike</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card xs={{ maxWidth: 150 }} elevation={3}>
+                            <CardMedia
+                                component="img"
+                                alt="vans"
+                                height="100%"
+                                width="100%"
+                                image={Vans}
+                            />
+
+                            <CardActions>
+                                <Button variant='contained' size='large' type='button' onClick={(e) => this.shoeSearchVans(e)}> Search All Vans</Button>
                             </CardActions>
                         </Card>
                     </Grid>
 
                 </Grid>
 
-
-                <Grid container spacing={2}>
-                    <Grid item  xs={4}>
+                <Grid container spacing='center' spacing={3}>
+                    <Grid item xs={4}>
                         <h1 headerAlign="center">Search Result</h1>
-                        <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
-                                Vans
-                            </button>
-                            
-                    
-                                {this.state.shoes && this.state.shoes.results.map(shoe => {
-                                    return <Grid item xs={8} 
-                                    sx={{
-                                        display: 'flex',
-                                        flexWrap: 'wrap',
-                                        p: 1,
-                                        m: 1,
-                                        bgcolor: 'background.paper',
-                                        flexDirection: 'row',
-                                        maxWidth: 900}}
-                                            >
-                                        {/* <Box sx={{ maxWidth: 600 }}>
-                                            <img src={shoe.image.thumbnail} />
-                                            <h3>Brand: {shoe.brand}</h3>
-                                            <h4>Name: {shoe.name}</h4>
-                                            <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                            <h5>Color: {shoe.colorway}</h5>
-                                            <h5>Release date: {shoe.releaseDate}</h5>
-                                            <p>Description: {shoe.story}</p>
-                                            <p>Gender: {shoe.gender}</p>
-                                        </Box> */}
-                                            <Card sx={{ maxWidth: 900 }}>
-                                                <CardMedia
-                                                    component="img"
-                                                    height="300"
-                                                    image={shoe.image.thumbnail}
-                                                    alt={shoe.name}
-                                                />
-                                                <CardContent>
-                                                    <Typography gutterBottom variant="h5" component="div">
-                                                        <h2>{shoe.name}</h2>
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3>Brand: </h3>{shoe.brand}
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3> Estimated Cost: </h3>${shoe.estimatedMarketValue}
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3>Colorway: </h3>{shoe.colorway}
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3>Release date: </h3>{shoe.releaseDate}
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3>Description: </h3>{shoe.story}
-                                                    </Typography>
-                                                    <Typography>
-                                                        <h3>Gender: </h3>{shoe.gender}
-                                                    </Typography>            
-                                                </CardContent>
-                                            </Card>
-                                </Grid>
+                        <form className="d-flex flex-column">
+                            {shoes && shoes.results.map(shoe => {
+                                console.log(shoes)
+                                console.log(shoe.id)
+                                return <Card elevation={3} spacing={3}>
+                                    <CardMedia
+                                        component="img"
+                                        height="100%"
+                                        width="150%"
+                                        src={shoe.image.thumbnail}
+                                    />
+                                    {/* <img src={shoe.image.thumbnail} /> */}
+                                    <h3 class="card-title">Brand: {shoe.brand}</h3>
+                                    <h4 class="card-title">Name: {shoe.name}</h4>
+                                    <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                    <h5 class="card-title">Color: {shoe.colorway}</h5>
+                                    <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
+                                    <p class="card-title">Description: {shoe.story}</p>
+                                    <p class="card-title">Gender: {shoe.gender}</p>
+
+                                    <CardActions>
+                                        <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
+                                    </CardActions>
+                                </Card>
+
+                                // return <Box>
+                                // <img src={shoe.image.thumbnail} />
+                                // <h3 class="card-title">Brand: {shoe.brand}</h3>
+                                // <h4 class="card-title">Name: {shoe.name}</h4>
+                                // <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                // <h5 class="card-title">Color: {shoe.colorway}</h5>
+                                // <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
+                                // <p class="card-title">Description: {shoe.story}</p>
+                                // <p class="card-title">Gender: {shoe.gender}</p>
+                                // </Box>
+
+                            })}
+
+                            {/* Original */}
+                            {/* {this.state.shoes && this.state.shoes.results.map(shoe => {
+                                    return <Box>
+                                    <Box>
+                                        <img src={shoe.image.thumbnail} />
+                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
+                                        <h4 class="card-title">Name: {shoe.name}</h4>
+                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
+                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
+                                        <p class="card-title">Description: {shoe.story}</p>
+                                        <p class="card-title">Gender: {shoe.gender}</p>
+                                    </Box>
+                                </Box>
                                     // <tr>
                                     //     <td>{shoe.name}</td>
                                     //     <td>{shoe.estimatedMarketValue}</td>
                                     //     <td>{shoe.story}</td>
                                     // </tr>
                                     
-                                })}
+                                })} */}
+                        </form>
                     </Grid>
                 </Grid>
             </Box>
 
         );
 
-
     }
 };
-
 
 export default Home;
