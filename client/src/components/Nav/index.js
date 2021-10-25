@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Auth from '../../utils/auth';
 import { positions } from '@mui/system';
 
 const Nav = () => {
@@ -62,8 +63,15 @@ const Nav = () => {
                     <Button color='inherit' component={Link} to='/'>Home</Button>
                     <Button color='inherit' component={Link} to='/'>Shop All</Button>
                     <Button color='inherit' component={Link} to='/About'>About</Button>
-                    <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
+                   
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
+                    {Auth.loggedIn() ? (
+                          <Button color='inherit' component={Link} to='/SignIn'>Logout / signup</Button>
+                      ):
+                      
+                      (
+                         <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
+                      )}
                     <Search>
                         <SearchIconWrapper>
                         <SearchIcon />

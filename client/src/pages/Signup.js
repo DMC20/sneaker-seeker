@@ -28,8 +28,7 @@ function Signup() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // check if form has everything (as per react-bootstrap docs)
+console.log('handlesubmit')
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -39,8 +38,10 @@ function Signup() {
       const { data } = await addUser({
         variables: { ...userFormData }
       });
-
-      if (error) throw new Error('something went wrong!');
+        console.log('DATA', data)
+      if (error) {
+        throw new Error('something went wrong!');
+      };
 
       Auth.login(data.addUser.token);
       
@@ -76,7 +77,8 @@ function Signup() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" sx={{ mt: 3 }} noValidate validated={validated}>
+          <Box component="form" sx={{ mt: 3 }}>
+          <form onSubmit={handleFormSubmit} noValidate validated={validated}> 
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -129,16 +131,15 @@ function Signup() {
                 />
               </Grid>
             </Grid>
-            <Button
+            <input
               disabled={!(userFormData.firstName && userFormData.lastName && userFormData.email && userFormData.password)}
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onSubmit={handleFormSubmit}
-            >
-              Sign Up
-            </Button>
+            />
+          </form>
+
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="./SignIn" variant="body2">
