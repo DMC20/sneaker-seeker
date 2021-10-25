@@ -61,7 +61,7 @@ const Nav = () => {
                     </Typography>
                     <Button color='inherit' component={Link} to='/'>Home</Button>
                     <Button color='inherit' component={Link} to='/'>Shop All</Button>
-                    <Button olor='inherit' component={Link} to='/About'>About</Button>
+                    <Button color='inherit' component={Link} to='/About'>About</Button>
                     <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     <Search>
@@ -73,7 +73,7 @@ const Nav = () => {
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
-                    <Button color='inherit' startIcon={<ShoppingCartIcon />} />
+                    <Button color='inherit' component={Link} to='/Cart' startIcon={<ShoppingCartIcon />} />
                 </Toolbar>
             </AppBar>
         </Box>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import reducers from "../../utils/reducers"
 // import $ from 'jquery';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
