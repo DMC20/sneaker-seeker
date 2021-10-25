@@ -9,7 +9,7 @@ export const getMe = (token) => {
 };
   
 export const createUser = (userData) => {
-    return fetch('/api/users', {
+    return fetch('api/SignUp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export const createUser = (userData) => {
 };
   
 export const loginUser = (userData) => {
-    return fetch('/api/users/login', {
+    return fetch('/api/users/SignIn', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
