@@ -24,6 +24,7 @@ const theme = createTheme();
 export default function SignInSide() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
+  const [validated] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -97,6 +98,7 @@ export default function SignInSide() {
               Log in
             </Typography>
             <Box component="form" sx={{ mt: 1 }}>
+              <form onSubmit={handleSubmit} noValidate validated={validated}>
               <TextField
                 margin="normal"
                 required
@@ -125,16 +127,16 @@ export default function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
+              <input
                 disabled={!(formState.email && formState.password)}
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={handleSubmit}
-              >
+              />
                 Sign In
-              </Button>
+              </form>
+
               <Grid container>
                 <Grid item>
                   <Link href='./SignUp' variant="body2">
@@ -142,6 +144,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
               </Grid>
+
             </Box>
           </Box>
         </Grid>
