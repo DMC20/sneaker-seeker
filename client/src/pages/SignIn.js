@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,7 +12,11 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import jordan from '../../assets/sign-in.jpg'
+import jordan from '../assets/sign-in.jpg';
+
+import { useMutation } from '@apollo/react-hooks';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 
 function Copyright(props) {
@@ -31,13 +35,43 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value
+    })
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await login({
+        variables: {
+          ...formState,
+        },
+      });
+
+      if (error) throw new Error("something went wrong!");
+
+      Auth.login(data.login.token);
+      
+    } catch (err) {
+      console.error(err);
+    }
+
+    setFormState({
+      email: "",
+      password: "",
     });
   };
 
@@ -75,7 +109,7 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Log in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -85,6 +119,8 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={formState.email}
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -95,16 +131,20 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={formState.password}
+                onChange={handleChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
               <Button
+                disabled={!(formState.email && formState.password)}
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
