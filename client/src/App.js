@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import Home from './components/Home';
 import Nav from "./components/Nav";
 import SignInSide from './pages/SignIn';
-import SignUp from './pages/Signup'
+import SignUp from './pages/Signup';
 
 const client = new ApolloClient({
   request: (operation) => {
