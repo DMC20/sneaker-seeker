@@ -13,6 +13,8 @@ import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
 import CardHeader from '@mui/material/CardHeader';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 
 
 
@@ -177,14 +179,22 @@ class Home extends React.Component {
                 <Grid container spacing={2}>
                     <Grid item  xs={4}>
                         <h1 headerAlign="center">Search Result</h1>
-                        <form className="d-flex flex-column">
                         <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
                                 Vans
                             </button>
                             
                     
                                 {this.state.shoes && this.state.shoes.results.map(shoe => {
-                                    return <Grid item xs={4}>
+                                    return <Grid item xs={8} 
+                                    sx={{
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        p: 1,
+                                        m: 1,
+                                        bgcolor: 'background.paper',
+                                        flexDirection: 'row',
+                                        maxWidth: 900}}
+                                            >
                                         {/* <Box sx={{ maxWidth: 600 }}>
                                             <img src={shoe.image.thumbnail} />
                                             <h3>Brand: {shoe.brand}</h3>
@@ -195,38 +205,37 @@ class Home extends React.Component {
                                             <p>Description: {shoe.story}</p>
                                             <p>Gender: {shoe.gender}</p>
                                         </Box> */}
-                                        <Card sx={{ maxWidth: 600 }}>
-                                            <CardMedia
-                                                component="img"
-                                                height="140"
-                                                image={shoe.image.thumbnail}
-                                                alt={shoe.name}
-                                            />
-                                            <CardContent>
-                                                <Typography gutterBottom variant="h5" component="div">
-                                                    {shoe.name}
-                                                </Typography>
-                                                <Typography>
-                                                    Brand: {shoe.brand}
-                                                </Typography>
-                                                <Typography>
-                                                    Estimated cost: ${shoe.estimatedMarketValue}
-                                                </Typography>
-                                                <Typography>
-                                                    Colorway: {shoe.colorway}
-                                                </Typography>
-                                                <Typography>
-                                                    Release date: {shoe.releaseDate}
-                                                </Typography>
-                                                <Typography>
-                                                    Description: {shoe.story}
-                                                </Typography>
-                                                <Typography>
-                                                Gender: {shoe.gender}
-                                                </Typography>            
-                                            </CardContent>
+                                            <Card sx={{ maxWidth: 900 }}>
+                                                <CardMedia
+                                                    component="img"
+                                                    height="300"
+                                                    image={shoe.image.thumbnail}
+                                                    alt={shoe.name}
+                                                />
+                                                <CardContent>
+                                                    <Typography gutterBottom variant="h5" component="div">
+                                                        <h2>{shoe.name}</h2>
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3>Brand: </h3>{shoe.brand}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3> Estimated Cost: </h3>${shoe.estimatedMarketValue}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3>Colorway: </h3>{shoe.colorway}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3>Release date: </h3>{shoe.releaseDate}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3>Description: </h3>{shoe.story}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <h3>Gender: </h3>{shoe.gender}
+                                                    </Typography>            
+                                                </CardContent>
                                             </Card>
-  
                                 </Grid>
                                     // <tr>
                                     //     <td>{shoe.name}</td>
@@ -235,16 +244,9 @@ class Home extends React.Component {
                                     // </tr>
                                     
                                 })}
-                        </form>
                     </Grid>
                 </Grid>
             </Box>
-
-          
-
-
-
-
 
         );
 
