@@ -1,5 +1,20 @@
 import React, { useEffect, useState } from "react";
-import $ from 'jquery';
+// import $ from 'jquery';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import { positions } from '@mui/system';
+import AirJordan from '../../assets/air-jordan.jpg';
+import Yeezy from '../../assets/yeezy.jpg';
+import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
+import CardHeader from '@mui/material/CardHeader';
+
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -7,7 +22,6 @@ class Home extends React.Component {
         this.state = {
             shoes: ''
         };
-
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -103,36 +117,117 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <h1 className="display-4 text-center">Shoe search</h1>
+
+            <Box sx={{ flexGrow: 1 }} marginTop={2} >
+                <h1>Popular Shoes</h1>
+
+                {/* Initial box for popular search */}
+                <Grid container spacing = 'center' spacing={8} >
+                    {/* Nike Air Jordan */}
+                    <Grid item xs={4}>
+                        <Card xs={{ maxWidth: 400 }} elevation={3}>
+                            <CardMedia
+                                class="air-jordan"
+                                component="img"
+                                alt="Air Jordan 1 OG Chicago"
+                                height="300"
+                                width="440"
+                                image={AirJordan}
+                            />
+
+                            <CardActions>
+                                <Button variant='contained' size="large" type='button' onClick={(e) => this.shoeSearchJordans(e)}>Search All Jordans</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card xs={{ maxWidth: 400 }} elevation={3}>
+                            <CardMedia
+                                component="img"
+                                alt="Adidas Yeezy"
+                                height="300"
+                                image={Yeezy}
+                            />
+                            
+                            <CardActions>
+                                <Button variant = 'contained' size="large" type='button' onClick={(e) => this.shoeSearchYeezy(e)}> Search All Yeezys</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card xs={{ maxWidth: 150 }} elevation={3}>
+                            <CardMedia
+                                component="img"
+                                alt="note pad"
+                                height="300"
+                                image={NikeDunk}
+                            />
+                        
+                            <CardActions>
+                                <Button variant ='contained' size='large' type='button' onClick={(e) => this.shoeSearchNike(e)}> Search All Nike</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                </Grid>
+
+
+                <Grid container spacing={2}>
+                    <Grid item  xs={4}>
+                        <h1 headerAlign="center">Search Result</h1>
                         <form className="d-flex flex-column">
                         <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchVans(e)}>
                                 Vans
                             </button>
-                            <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchJordans(e)}>
-                                Jordans
-                            </button>
-                            <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchYeezy(e)}>
-                                Yeezy
-                            </button>
-                            <button className="btn btn-primary" type='button' onClick={(e) => this.shoeSearchNike(e)}>
-                                Nike
-                            </button>
+                            
+                    
                                 {this.state.shoes && this.state.shoes.results.map(shoe => {
-                                    return <div>
-                                    <div>
-                                        <img src={shoe.image.thumbnail} />
-                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                        <h4 class="card-title">Name: {shoe.name}</h4>
-                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                        <p class="card-title">Description: {shoe.story}</p>
-                                        <p class="card-title">Gender: {shoe.gender}</p>
-                                    </div>
-                                </div>
+                                    return <Grid item xs={4}>
+                                        {/* <Box sx={{ maxWidth: 600 }}>
+                                            <img src={shoe.image.thumbnail} />
+                                            <h3>Brand: {shoe.brand}</h3>
+                                            <h4>Name: {shoe.name}</h4>
+                                            <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                            <h5>Color: {shoe.colorway}</h5>
+                                            <h5>Release date: {shoe.releaseDate}</h5>
+                                            <p>Description: {shoe.story}</p>
+                                            <p>Gender: {shoe.gender}</p>
+                                        </Box> */}
+                                        <Card sx={{ maxWidth: 600 }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="140"
+                                                image={shoe.image.thumbnail}
+                                                alt={shoe.name}
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {shoe.name}
+                                                </Typography>
+                                                <Typography>
+                                                    Brand: {shoe.brand}
+                                                </Typography>
+                                                <Typography>
+                                                    Estimated cost: ${shoe.estimatedMarketValue}
+                                                </Typography>
+                                                <Typography>
+                                                    Colorway: {shoe.colorway}
+                                                </Typography>
+                                                <Typography>
+                                                    Release date: {shoe.releaseDate}
+                                                </Typography>
+                                                <Typography>
+                                                    Description: {shoe.story}
+                                                </Typography>
+                                                <Typography>
+                                                Gender: {shoe.gender}
+                                                </Typography>            
+                                            </CardContent>
+                                            </Card>
+  
+                                </Grid>
                                     // <tr>
                                     //     <td>{shoe.name}</td>
                                     //     <td>{shoe.estimatedMarketValue}</td>
@@ -141,11 +236,21 @@ class Home extends React.Component {
                                     
                                 })}
                         </form>
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Grid>
+            </Box>
+
+          
+
+
+
+
+
         );
+
+
     }
 };
+
 
 export default Home;
