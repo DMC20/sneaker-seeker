@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,19 +11,52 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useMutation } from '@apollo/react-hooks';
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
-const theme = createTheme();
+function Signup() {
+  const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
+  const [validated] = useState(false);
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData }
+      });
+
+      if (error) throw new Error('something went wrong!');
+
+      Auth.login(data.addUser.token);
+      
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
     });
   };
+
+  const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
@@ -43,7 +76,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" sx={{ mt: 3 }} noValidate validated={validated}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -54,6 +87,8 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={userFormData.firstName}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -64,6 +99,8 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  value={userFormData.lastName}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,6 +111,8 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={userFormData.email}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -85,14 +124,18 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={userFormData.password}
+                  onChange={handleInputChange}
                 />
               </Grid>
             </Grid>
             <Button
+              disabled={!(userFormData.firstName && userFormData.lastName && userFormData.email && userFormData.password)}
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onSubmit={handleFormSubmit}
             >
               Sign Up
             </Button>
@@ -108,4 +151,6 @@ export default function SignUp() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default Signup;
