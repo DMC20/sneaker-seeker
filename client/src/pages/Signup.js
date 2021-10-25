@@ -77,7 +77,7 @@ console.log('handlesubmit')
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          {/* <Box component="form" sx={{ mt: 3 }} noValidate validated={validated}> */}
+          <Box component="form" sx={{ mt: 3 }}>
           <form onSubmit={handleFormSubmit} noValidate validated={validated}> 
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -138,8 +138,6 @@ console.log('handlesubmit')
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             />
-              Sign Up
-            
           </form>
 
             <Grid container justifyContent="flex-end">
@@ -149,7 +147,7 @@ console.log('handlesubmit')
                 </Link>
               </Grid>
             </Grid>
-          {/* </Box> */}
+          </Box>
         </Box>
       </Container>
     </ThemeProvider>
