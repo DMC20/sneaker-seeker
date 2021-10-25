@@ -11,6 +11,7 @@ import { styled, alpha } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { positions } from '@mui/system';
 
+
 const Nav = () => {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -66,7 +67,7 @@ const Nav = () => {
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     <Search>
                         <SearchIconWrapper>
-                        <SearchIcon />
+                          <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                         placeholder="Search Shoes"

@@ -12,6 +12,7 @@ import { positions } from '@mui/system';
 import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
+import CardHeader from '@mui/material/CardHeader';
 
 
 
@@ -183,18 +184,50 @@ class Home extends React.Component {
                             
                     
                                 {this.state.shoes && this.state.shoes.results.map(shoe => {
-                                    return <Box>
-                                    <Box>
-                                        <img src={shoe.image.thumbnail} />
-                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                        <h4 class="card-title">Name: {shoe.name}</h4>
-                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                        <p class="card-title">Description: {shoe.story}</p>
-                                        <p class="card-title">Gender: {shoe.gender}</p>
-                                    </Box>
-                                </Box>
+                                    return <Grid item xs={4}>
+                                        {/* <Box sx={{ maxWidth: 600 }}>
+                                            <img src={shoe.image.thumbnail} />
+                                            <h3>Brand: {shoe.brand}</h3>
+                                            <h4>Name: {shoe.name}</h4>
+                                            <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                            <h5>Color: {shoe.colorway}</h5>
+                                            <h5>Release date: {shoe.releaseDate}</h5>
+                                            <p>Description: {shoe.story}</p>
+                                            <p>Gender: {shoe.gender}</p>
+                                        </Box> */}
+                                        <Card sx={{ maxWidth: 600 }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="140"
+                                                image={shoe.image.thumbnail}
+                                                alt={shoe.name}
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {shoe.name}
+                                                </Typography>
+                                                <Typography>
+                                                    Brand: {shoe.brand}
+                                                </Typography>
+                                                <Typography>
+                                                    Estimated cost: ${shoe.estimatedMarketValue}
+                                                </Typography>
+                                                <Typography>
+                                                    Colorway: {shoe.colorway}
+                                                </Typography>
+                                                <Typography>
+                                                    Release date: {shoe.releaseDate}
+                                                </Typography>
+                                                <Typography>
+                                                    Description: {shoe.story}
+                                                </Typography>
+                                                <Typography>
+                                                Gender: {shoe.gender}
+                                                </Typography>            
+                                            </CardContent>
+                                            </Card>
+  
+                                </Grid>
                                     // <tr>
                                     //     <td>{shoe.name}</td>
                                     //     <td>{shoe.estimatedMarketValue}</td>
