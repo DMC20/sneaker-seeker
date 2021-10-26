@@ -1,11 +1,11 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Product, Brand, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await Brand.find();
     },
     products: async (parent, { category, name }) => {
       const params = {};
