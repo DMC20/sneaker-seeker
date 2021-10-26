@@ -209,8 +209,8 @@ class Home extends React.Component {
 
                 </Grid>
 
-                <Grid container spacing='center' spacing={3}>
-                    <Grid item xs={4}>
+                <Grid container spacing='center' spacing={4}>
+                    <Grid item xs={3}>
                         <h1 headerAlign="center">Search Result</h1>
                         <form className="d-flex flex-column">
                             {shoes && shoes.results.map(shoe => {
