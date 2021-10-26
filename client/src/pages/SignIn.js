@@ -110,7 +110,6 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Log in
             </Typography>
-            <Box component="form" sx={{ mt: 1 }}>
               <form onSubmit={handleSubmit} noValidate validated={validated}>
               <TextField
                 margin="normal"
@@ -148,7 +147,6 @@ export default function SignInSide() {
                 sx={{ mt: 3, mb: 2 }}
               />
               </form>
-
               <Grid container>
                 <Grid item>
                   <Link href='./SignUp' variant="body2">
@@ -156,8 +154,6 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
               </Grid>
-
-            </Box>
           </Box>
         </Grid>
       </Grid>
