@@ -46,7 +46,7 @@ const About = () => {
                             -Front End
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
-                            -Sign up and Sign In Pages
+                            -Sign up/Sign In 
                         </Typography>   
                     </CardContent>
                     <CardMedia>

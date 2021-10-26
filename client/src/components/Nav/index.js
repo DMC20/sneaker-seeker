@@ -67,7 +67,7 @@ const Nav = () => {
                    
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     {Auth.loggedIn() ? (
-                          <Button color='inherit' component={Link} to='/SignIn'>Logout / signup</Button>
+                          <Button color='inherit' component={Link} to='/'>Logout</Button>
                       ):
                       
                       (
