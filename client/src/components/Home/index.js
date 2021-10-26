@@ -224,13 +224,13 @@ class Home extends React.Component {
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
-                                    <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                    <h4 class="card-title">Name: {shoe.name}</h4>
-                                    <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                    <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                    <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                    <p class="card-title">Description: {shoe.story}</p>
-                                    <p class="card-title">Gender: {shoe.gender}</p>
+                                    <h2>{shoe.brand}</h2>
+                                    <h3>Name:</h3>{shoe.name}
+                                    <h3>Estimated cost:$</h3>{shoe.estimatedMarketValue}
+                                    <h3>Color:</h3>{shoe.colorway}
+                                    <h3>Release date:</h3>{shoe.releaseDate}
+                                    <h3>Description:</h3><p>{shoe.story}</p>
+                                    <h3>Gender:</h3>{shoe.gender}
 
                                     <CardActions>
                                         <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
@@ -239,13 +239,13 @@ class Home extends React.Component {
 
                                 // return <Box>
                                 // <img src={shoe.image.thumbnail} />
-                                // <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                // <h4 class="card-title">Name: {shoe.name}</h4>
-                                // <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                // <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                // <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                // <p class="card-title">Description: {shoe.story}</p>
-                                // <p class="card-title">Gender: {shoe.gender}</p>
+                                // <h3>Brand: {shoe.brand}</h3>
+                                // <h4>Name: {shoe.name}</h4>
+                                // <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                // <h5>Color: {shoe.colorway}</h5>
+                                // <h5>Release date: {shoe.releaseDate}</h5>
+                                // <p>Description: {shoe.story}</p>
+                                // <p>Gender: {shoe.gender}</p>
                                 // </Box>
 
                             })}
@@ -255,13 +255,13 @@ class Home extends React.Component {
                                     return <Box>
                                     <Box>
                                         <img src={shoe.image.thumbnail} />
-                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                        <h4 class="card-title">Name: {shoe.name}</h4>
-                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                        <p class="card-title">Description: {shoe.story}</p>
-                                        <p class="card-title">Gender: {shoe.gender}</p>
+                                        <h3>Brand: {shoe.brand}</h3>
+                                        <h4>Name: {shoe.name}</h4>
+                                        <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                        <h5>Color: {shoe.colorway}</h5>
+                                        <h5>Release date: {shoe.releaseDate}</h5>
+                                        <p>Description: {shoe.story}</p>
+                                        <p>Gender: {shoe.gender}</p>
                                     </Box>
                                 </Box>
                                     // <tr>
