@@ -49,3 +49,38 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// export const SAVE_SHOES = gql`
+//   mutation saveShoe($ShoeData: ShoeInput!) {
+//     saveShoes(ShoeData: $ShoeData) {
+//       _id
+//       username
+//       email
+//       savedShoes {
+//         shoeId
+//         name
+//         description
+//         price
+//         quantity
+//       }
+//     }
+//   }
+// `;
+
+// export const REMOVE_SHOES = gql`
+//   mutation removeShoe($shoeId: ID!) {
+//     removeShoes(ShoeId: $ShoeId) {
+//       _id
+//       username
+//       email
+//       savedShoes {
+//         bookId
+//         authors
+//         image
+//         description
+//         title
+//         link
+//       }
+//     }
+//   }
+// `;

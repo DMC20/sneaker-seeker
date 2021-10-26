@@ -12,6 +12,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Auth from '../../utils/auth';
 import { positions } from '@mui/system';
 
+
 const Nav = () => {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -74,7 +75,7 @@ const Nav = () => {
                       )}
                     <Search>
                         <SearchIconWrapper>
-                        <SearchIcon />
+                          <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                         placeholder="Search Shoes"
