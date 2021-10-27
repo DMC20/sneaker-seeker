@@ -1,8 +1,6 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -14,10 +12,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
-import CSS from '../../index.css';
-
-
-
 
 const About = () => {
     return (
@@ -201,12 +195,7 @@ const About = () => {
                         </Stack>
                     </CardMedia>
                 </Card>
-            </Grid>
-
-            
-
-       
-        
+            </Grid>       
         </Grid>
       </Box>
     
