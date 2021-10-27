@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -19,59 +18,31 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Sneaker Seeker
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function SignInSide() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
+  const [validated] = useState(false);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
-    })
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    try {
-      const { data } = await login({
-        variables: {
-          ...formState,
-        },
-      });
-
-      if (error) throw new Error("something went wrong!");
-
-      Auth.login(data.login.token);
-      
-    } catch (err) {
-      console.error(err);
-    }
-
-    setFormState({
-      email: "",
-      password: "",
+      [name]: value,
     });
   };
 
@@ -109,7 +80,8 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Log in
             </Typography>
-            <Box component="form" sx={{ mt: 1 }}>
+
+              <form onSubmit={handleFormSubmit}>
               <TextField
                 margin="normal"
                 required
@@ -138,16 +110,23 @@ export default function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
+              <input
                 disabled={!(formState.email && formState.password)}
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={handleSubmit}
-              >
-                Sign In
-              </Button>
+              />
+              </form>
+
+              />
+              {error ? (
+              <div>
+                <p className="error-text">The provided credentials are incorrect</p>
+              </div>
+            ) : null}
+              </form>
+
               <Grid container>
                 <Grid item>
                   <Link href='./SignUp' variant="body2">
@@ -155,7 +134,10 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
               </Grid>
+
+
             </Box>
+
           </Box>
         </Grid>
       </Grid>
