@@ -10,9 +10,9 @@ import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Auth from '../../utils/auth';
+
 import logo from '../../assets/logo.jpg';
 import Grid from '@mui/material/Grid';
-
 
 
 const Nav = () => {

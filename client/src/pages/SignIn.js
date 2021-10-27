@@ -23,7 +23,6 @@ const theme = createTheme();
 export default function SignInSide() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
-  const [validated] = useState(false);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
