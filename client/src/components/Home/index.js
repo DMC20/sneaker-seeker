@@ -17,6 +17,7 @@ import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Vans from '../../assets/vans.jpg';
+// import { DataGridPro } from '@mui/x-data-grid-pro'; 
 
 
 const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
@@ -209,34 +210,43 @@ class Home extends React.Component {
 
                 </Grid>
 
-                <Grid container spacing='center' spacing={9}>
-                    <Grid item xs={3}>
-                        <h1 headerAlign="center">Search Result</h1>
+                {/* <Grid container spacing='center' spacing={9} xs={12} sm={6} md={3}> */}
+                    {/* <Grid item> */}
+                        <h1>Search Result</h1>
                         {/* <form className="d-flex flex-column"> */}
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
                                 console.log(shoe.id)
-                                return <Card elevation={5} spacing={3}>
+                                return( 
+                                <Card elevation={5} xs={12} sm={6} md={3} 
+                                sx={{ 
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justify: 'flex-start',
+                                    alignItems: 'flex-start'
+                                }}>
                                     <CardMedia
                                         component="img"
-                                        height="100%"
-                                        width="150%"
+                                        height= "100%"
+                                        // width="50px"
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
-                                    <h2>{shoe.brand}</h2>
-                                    <h3>Name:</h3>{shoe.name}
-                                    <h3>Estimated cost:$</h3>{shoe.estimatedMarketValue}
-                                    <h3>Color:</h3>{shoe.colorway}
-                                    <h3>Release date:</h3>{shoe.releaseDate}
-                                    <h3>Description:</h3><p>{shoe.story}</p>
-                                    <h3>Gender:</h3>{shoe.gender}
+                                    <CardContent>
+                                    <h1>{shoe.brand}</h1>
+                                    <h2>Name:</h2>{shoe.name}
+                                    <h2>Estimated cost:$</h2>{shoe.estimatedMarketValue}
+                                    <h2>Color:</h2>{shoe.colorway}
+                                    <h2>Release date:</h2>{shoe.releaseDate}
+                                    <h2>Description:</h2><p>{shoe.story}</p>
+                                    <h2>Gender:</h2>{shoe.gender}
+                                    </CardContent>
 
-                                    <CardActions>
+                                    <CardActions sx={{ justifyContent: "center" }}>
                                         <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
                                     </CardActions>
-                                </Card>
-
+                                    </Card>
+                               
                                 // return <Box>
                                 // <img src={shoe.image.thumbnail} />
                                 // <h3>Brand: {shoe.brand}</h3>
@@ -248,7 +258,7 @@ class Home extends React.Component {
                                 // <p>Gender: {shoe.gender}</p>
                                 // </Box>
 
-                            })}
+                            )})}
 
                             {/* Original */}
                             {/* {this.state.shoes && this.state.shoes.results.map(shoe => {
@@ -272,8 +282,8 @@ class Home extends React.Component {
                                     
                                 })} */}
                         {/* </form> */}
-                    </Grid>
-                </Grid>
+                    {/* </Grid> */}
+                {/* </Grid> */}
             </Box>
 
         );
