@@ -59,7 +59,7 @@ const Nav = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position='static' sx={{ bgcolor: 'text.primary' }}>
                 <Toolbar>
-                    <Typography variant='h4' sx={{ flexGrow: 4 }} className="header">
+                    <Typography variant='h1' sx={{ flexGrow: 4 }} class="header">
                         Sneaker Seeker
                     </Typography>
                     <Button color='inherit' component={Link} to='/'>Home</Button>
