@@ -3,24 +3,31 @@ import reducers from "../../utils/reducers"
 // import $ from 'jquery';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import { positions } from '@mui/system';
 import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
-import CardHeader from '@mui/material/CardHeader';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Vans from '../../assets/vans.jpg';
 // import { DataGridPro } from '@mui/x-data-grid-pro'; 
 
 
 const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
+
+
+// 67cc3e5620msh921bc12ae0b5bb0p105a12jsn2a758b84426e // Shane key backup 
+
+
+var cardStyle = {
+    display: 'block',
+    width: '40vw',
+    transitionDuration: '0.3s',
+    height: '80vw',
+    justifyContent: 'center'                         
+}
 
 class Home extends React.Component {
     constructor(props) {
@@ -146,11 +153,11 @@ class Home extends React.Component {
                     <Grid item xs={12} sm={6} md={3}>
                         <Card elevation={3}>
                             <CardMedia
-                                class="air-jordan"
+                                className="air-jordan"
                                 component="img"
                                 alt="Air Jordan 1 OG Chicago"
                                 height="100%"
-                                width="100%"
+                                width="150%"
                                 image={AirJordan}
                             />
 
@@ -218,17 +225,19 @@ class Home extends React.Component {
                                 console.log(shoes)
                                 console.log(shoe.id)
                                 return( 
-                                <Card elevation={5} xs={12} sm={6} md={3} 
+                                <Card style={cardStyle} elevation={5} xs={12} sm={6} md={3}
+                                    spacing={3}
                                 sx={{ 
                                     display: 'flex',
                                     flexDirection: 'row',
                                     justify: 'flex-start',
                                     alignItems: 'flex-start'
-                                }}>
+                                }}
+                                >
                                     <CardMedia
                                         component="img"
-                                        height= "100%"
-                                        // width="50px"
+                                        height= "50%"
+                                        width="50%"
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
