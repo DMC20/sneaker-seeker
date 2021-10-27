@@ -18,6 +18,7 @@ const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 
 // 67cc3e5620msh921bc12ae0b5bb0p105a12jsn2a758b84426e // Shane key backup 
 
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -213,7 +214,17 @@ class Home extends React.Component {
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
                                 console.log(shoe.id)
-                                return <Card elevation={5} spacing={3}>
+                              
+                                return( 
+                                <Card elevation={5} xs={12} sm={6} md={3}
+                                    spacing={3}
+                                sx={{ 
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justify: 'flex-start',
+                                    alignItems: 'flex-start'
+                                }}
+                                >
                                     <CardMedia
                                         component="img"
                                         height="100%"
