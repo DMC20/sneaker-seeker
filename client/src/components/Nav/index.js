@@ -63,6 +63,7 @@ const Nav = () => {
                     </Typography>
                     <Button color='inherit' component={Link} to='/'>Home</Button>
                     <Button color='inherit' component={Link} to='/About'>About</Button>
+
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     {Auth.loggedIn() ? (
                           <Button color='inherit' href='/' onClick={() => Auth.logout()}>Logout</Button>

@@ -218,19 +218,58 @@ class Home extends React.Component {
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
-                                    <h3 className="card-title">Brand: {shoe.brand}</h3>
-                                    <h4 className="card-title">Name: {shoe.name}</h4>
-                                    <h5 className="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                    <h5 className="card-title">Color: {shoe.colorway}</h5>
-                                    <h5 className="card-title">Release date: {shoe.releaseDate}</h5>
-                                    <p className="card-title">Description: {shoe.story}</p>
-                                    <p className="card-title">Gender: {shoe.gender}</p>
+
+                                    <h2>{shoe.brand}</h2>
+                                    <h3>Name:</h3>{shoe.name}
+                                    <h3>Estimated cost:$</h3>{shoe.estimatedMarketValue}
+                                    <h3>Color:</h3>{shoe.colorway}
+                                    <h3>Release date:</h3>{shoe.releaseDate}
+                                    <h3>Description:</h3><p>{shoe.story}</p>
+                                    <h3>Gender:</h3>{shoe.gender}
+
 
                                     <CardActions>
                                         <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
                                     </CardActions>
                                 </Card>
+
+                                // return <Box>
+                                // <img src={shoe.image.thumbnail} />
+                                // <h3>Brand: {shoe.brand}</h3>
+                                // <h4>Name: {shoe.name}</h4>
+                                // <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                // <h5>Color: {shoe.colorway}</h5>
+                                // <h5>Release date: {shoe.releaseDate}</h5>
+                                // <p>Description: {shoe.story}</p>
+                                // <p>Gender: {shoe.gender}</p>
+                                // </Box>
+
                             })}
+
+                            {/* Original */}
+                            {/* {this.state.shoes && this.state.shoes.results.map(shoe => {
+                                    return <Box>
+                                    <Box>
+                                        <img src={shoe.image.thumbnail} />
+                                        <h3>Brand: {shoe.brand}</h3>
+                                        <h4>Name: {shoe.name}</h4>
+                                        <h5>Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                        <h5>Color: {shoe.colorway}</h5>
+                                        <h5>Release date: {shoe.releaseDate}</h5>
+                                        <p>Description: {shoe.story}</p>
+                                        <p>Gender: {shoe.gender}</p>
+                                    </Box>
+                                </Box>
+                                    // <tr>
+                                    //     <td>{shoe.name}</td>
+                                    //     <td>{shoe.estimatedMarketValue}</td>
+                                    //     <td>{shoe.story}</td>
+                                    // </tr>
+                                    
+                                })} */}
+
+                            })}
+
                         </form>
                     </Grid>
                 </Grid>

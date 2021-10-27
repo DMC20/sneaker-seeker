@@ -19,7 +19,6 @@ import EmailIcon from '@mui/icons-material/Email';
 
 
 const About = () => {
-
     return (
         <Box sx={{ flexGrow: 2 }} marginTop={3} marginBottom={3}>
         <Grid container spacing = 'center' spacing={8} >
