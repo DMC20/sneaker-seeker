@@ -136,8 +136,8 @@ class Home extends React.Component {
                 {/* Initial box for popular search */}
                 <Grid container spacing='center' spacing={5} >
                     {/* Nike Air Jordan */}
-                    <Grid item xs={4}>
-                        <Card xs={{ maxWidth: 400 }} elevation={3}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Card elevation={3}>
                             <CardMedia
                                 className="air-jordan"
                                 component="img"
@@ -153,8 +153,8 @@ class Home extends React.Component {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={4}>
-                        <Card xs={{ maxWidth: 400 }} elevation={3}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Card elevation={3}>
                             <CardMedia
                                 component="img"
                                 alt="Adidas Yeezy"
@@ -169,11 +169,11 @@ class Home extends React.Component {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={4}>
-                        <Card xs={{ maxWidth: 150 }} elevation={3}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Card elevation={3}>
                             <CardMedia
                                 component="img"
-                                alt="note pad"
+                                alt="nike dunk"
                                 height="100%"
                                 width="100%"
                                 image={NikeDunk}
@@ -185,8 +185,8 @@ class Home extends React.Component {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={4}>
-                        <Card xs={{ maxWidth: 150 }} elevation={3}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <Card elevation={3}>
                             <CardMedia
                                 component="img"
                                 alt="vans"
@@ -203,14 +203,14 @@ class Home extends React.Component {
 
                 </Grid>
 
-                <Grid container spacing='center' spacing={4}>
+                <Grid container spacing='center' spacing={9}>
                     <Grid item xs={3}>
-                        <h1 headeralign="center">Search Result</h1>
-                        <form className="d-flex flex-column">
+                        <h1 headerAlign="center">Search Result</h1>
+                        {/* <form className="d-flex flex-column"> */}
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
                                 console.log(shoe.id)
-                                return <Card elevation={3} spacing={3}>
+                                return <Card elevation={5} spacing={3}>
                                     <CardMedia
                                         component="img"
                                         height="100%"
@@ -267,6 +267,7 @@ class Home extends React.Component {
                                     // </tr>
                                     
                                 })} */}
+
 
                             })}
 

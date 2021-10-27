@@ -11,6 +11,7 @@ import { styled, alpha } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Auth from '../../utils/auth';
 import { positions } from '@mui/system';
+import CSS from '../../index.css';
 
 
 const Nav = () => {
