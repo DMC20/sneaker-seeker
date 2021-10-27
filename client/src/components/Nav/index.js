@@ -63,17 +63,7 @@ const Nav = () => {
                   <img src={logo} />
                     <Grid container direction='row-reverse' >
 
-                    <Button color='inherit' component={Link} to='/'>Home</Button>
-
-                    <Button color='inherit' component={Link} to='/About'>About</Button>
-
-<Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
-{Auth.loggedIn() ? (
-      <Button color='inherit' href='/' onClick={() => Auth.logout()}>Logout</Button>
-  ):  
-  (
-    <Button color='inherit' component={Link} to='/Signin'>Sign In</Button>
-  )}
+              
                     <Search>
                           <SearchIconWrapper>
                             <SearchIcon />
@@ -83,8 +73,25 @@ const Nav = () => {
                           inputProps={{ 'aria-label': 'search' }}
                           />
                       </Search>
-                      <Button color='inherit' startIcon={<ShoppingCartIcon />} />
-                     
+                    
+
+
+                      
+                      <Button color='inherit' startIcon={<ShoppingCartIcon />} />    
+
+
+
+                      <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
+                      {Auth.loggedIn() ? (
+                      <Button color='inherit' href='/' onClick={() => Auth.logout()}>Logout</Button>
+                      ):  
+                      (
+                      <Button color='inherit' component={Link} to='/Signin'>Sign In</Button>
+                      )}
+                         
+                      <Button color='inherit' component={Link} to='/'>Home</Button>
+                      <Button color='inherit' component={Link} to='/About'>About</Button>
+                      
                       
                     </Grid>
                 </Toolbar>
