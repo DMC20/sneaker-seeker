@@ -89,8 +89,9 @@ const Nav = () => {
                       <Button color='inherit' component={Link} to='/Signin'>Sign In</Button>
                       )}
                          
-                      <Button color='inherit' component={Link} to='/'>Home</Button>
+                      
                       <Button color='inherit' component={Link} to='/About'>About</Button>
+                      <Button color='inherit' component={Link} to='/'>Home</Button>
                       
                       
                     </Grid>
