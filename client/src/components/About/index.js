@@ -34,7 +34,7 @@ const About = () => {
                     />
                     <CardContent>
                         <Typography>
-                            <h1>Daniel Carazo</h1>
+                            Daniel Carazo
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
                             -Group Leader
@@ -46,21 +46,21 @@ const About = () => {
                             -Front End
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
-                            -Sign up and Sign In Pages
+                            -Sign up/Sign In 
                         </Typography>   
                     </CardContent>
                     <CardMedia>
                         <Stack direction="row" spacing={2} justifyContent='center'>
-                            <IconButton aria-label="github" a href="https://github.com/DMC20" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="github" href="https://github.com/DMC20" target="_blank" rel="noreferrer">
                                 {<GitHubIcon />}    
                             </IconButton>
-                            <IconButton aria-label="linkedn" a href="https://www.linkedin.com/in/danielcarazo20/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="linkedn" href="https://www.linkedin.com/in/danielcarazo20/" target="_blank" rel="noreferrer">
                                 {<LinkedInIcon />}
                             </IconButton>                    
-                            <IconButton aria-label="portfolio" a href="https://secure-temple-00041.herokuapp.com/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="portfolio" href="https://secure-temple-00041.herokuapp.com/" target="_blank" rel="noreferrer">
                                 {<AccountCircleIcon/>}
                             </IconButton>
-                            <IconButton aria-label="email" a href="mailto: danielcarazo20@gmail.com">
+                            <IconButton aria-label="email" href="mailto: danielcarazo20@gmail.com">
                                 {<EmailIcon/>}  
                             </IconButton>
                         </Stack>
@@ -78,8 +78,8 @@ const About = () => {
                         image="../../static/karla.jpg"
                     />
                     <CardContent>
-                        <Typography>
-                            <h1 justifyContent="center">Karla Romero</h1>
+                        <Typography justifyContent='center'>
+                            Karla Romero
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
                             -Front End
@@ -96,16 +96,16 @@ const About = () => {
                     </CardContent>
                     <CardMedia>
                         <Stack direction="row" spacing={2} justifyContent='center'>
-                            <IconButton aria-label="github" a href="https://github.com/kmre" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="github" href="https://github.com/kmre" target="_blank" rel="noreferrer">
                                 {<GitHubIcon />}    
                             </IconButton>
-                            <IconButton aria-label="linkedn" a href="https://www.linkedin.com/in/romerokarla" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="linkedn" href="https://www.linkedin.com/in/romerokarla" target="_blank" rel="noreferrer">
                                 {<LinkedInIcon />}
                             </IconButton>                    
-                            <IconButton aria-label="portfolio" a href="https://kmre.github.io/react-portfolio/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="portfolio" href="https://kmre.github.io/react-portfolio/" target="_blank" rel="noreferrer">
                                 {<AccountCircleIcon/>}
                             </IconButton>
-                            <IconButton aria-label="email" a href="mailto: Karla.Romero7@gmail.com">
+                            <IconButton aria-label="email" href="mailto: Karla.Romero7@gmail.com">
                                 {<EmailIcon/>}  
                             </IconButton>
                         </Stack>
@@ -124,7 +124,7 @@ const About = () => {
                     />
                     <CardContent>
                         <Typography>
-                            <h2>Shane Crisostomo</h2>
+                            Shane Crisostomo
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
                             -Front End
@@ -141,16 +141,16 @@ const About = () => {
                     </CardContent>
                     <CardMedia>
                         <Stack direction="row" spacing={2} justifyContent='center'>
-                            <IconButton aria-label="github" a href="https://github.com/shaner3423" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="github" href="https://github.com/shaner3423" target="_blank" rel="noreferrer">
                                 {<GitHubIcon />}    
                             </IconButton>
-                            <IconButton aria-label="linkedn" a href="https://www.linkedin.com/in/shane-crisostomo/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="linkedn" href="https://www.linkedin.com/in/shane-crisostomo/" target="_blank" rel="noreferrer">
                                 {<LinkedInIcon />}
                             </IconButton>                    
-                            <IconButton aria-label="portfolio" a href="https://shaner3423.github.io/react-portfolio/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="portfolio" href="https://shaner3423.github.io/react-portfolio/" target="_blank" rel="noreferrer">
                                 {<AccountCircleIcon/>}
                             </IconButton>
-                            <IconButton aria-label="email" a href="mailto: scrisostomo17@gmail.com">
+                            <IconButton aria-label="email" href="mailto: scrisostomo17@gmail.com">
                                 {<EmailIcon/>}  
                             </IconButton>
                         </Stack>
@@ -169,7 +169,7 @@ const About = () => {
                     />
                     <CardContent>
                         <Typography>
-                            <h2>Spencer Berkebile</h2>
+                            Spencer Berkebile
                         </Typography>
                         <Typography variant="body2" gutterBottom variant='h6' color="text.secondary">
                             -Back End
@@ -186,16 +186,16 @@ const About = () => {
                     </CardContent>
                     <CardMedia>
                         <Stack direction="row" spacing={2} justifyContent='center'>
-                            <IconButton aria-label="github" a href="https://github.com/SBerkebile7" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="github" href="https://github.com/SBerkebile7" target="_blank" rel="noreferrer">
                                 {<GitHubIcon />}    
                             </IconButton>
-                            <IconButton aria-label="linkedn" a href="https://www.linkedin.com/in/spencer-berkebile/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="linkedn" href="https://www.linkedin.com/in/spencer-berkebile/" target="_blank" rel="noreferrer">
                                 {<LinkedInIcon />}
                             </IconButton>                    
-                            <IconButton aria-label="portfolio" a href="https://sberkebile7.github.io/C20-React-Portfolio/#/" target="_blank" rel="noreferrer">
+                            <IconButton aria-label="portfolio" href="https://sberkebile7.github.io/C20-React-Portfolio/#/" target="_blank" rel="noreferrer">
                                 {<AccountCircleIcon/>}
                             </IconButton>
-                            <IconButton aria-label="email" a href="mailto: sberkebile@live.com">
+                            <IconButton aria-label="email" href="mailto: sberkebile@live.com">
                                 {<EmailIcon/>}  
                             </IconButton>
                         </Stack>

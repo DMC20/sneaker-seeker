@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
@@ -17,7 +16,6 @@ import { ADD_USER } from '../utils/mutations';
 
 function Signup() {
   const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
-  const [validated] = useState(false);
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -77,7 +75,7 @@ console.log('handlesubmit')
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form onSubmit={handleFormSubmit} noValidate validated={validated}> 
+          <form onSubmit={handleFormSubmit}> 
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -133,9 +131,6 @@ console.log('handlesubmit')
             <input
               disabled={!(userFormData.firstName && userFormData.lastName && userFormData.email && userFormData.password)}
               type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
             />
           </form>
             <Grid container justifyContent="flex-end">

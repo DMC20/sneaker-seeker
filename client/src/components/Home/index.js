@@ -4,18 +4,12 @@ import reducers from "../../utils/reducers"
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import { positions } from '@mui/system';
 import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
-import CardHeader from '@mui/material/CardHeader';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Vans from '../../assets/vans.jpg';
 
 
@@ -145,7 +139,7 @@ class Home extends React.Component {
                     <Grid item xs={4}>
                         <Card xs={{ maxWidth: 400 }} elevation={3}>
                             <CardMedia
-                                class="air-jordan"
+                                className="air-jordan"
                                 component="img"
                                 alt="Air Jordan 1 OG Chicago"
                                 height="100%"
@@ -209,9 +203,9 @@ class Home extends React.Component {
 
                 </Grid>
 
-                <Grid container spacing='center' spacing={3}>
-                    <Grid item xs={4}>
-                        <h1 headerAlign="center">Search Result</h1>
+                <Grid container spacing='center' spacing={4}>
+                    <Grid item xs={3}>
+                        <h1 headeralign="center">Search Result</h1>
                         <form className="d-flex flex-column">
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
@@ -224,53 +218,19 @@ class Home extends React.Component {
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
-                                    <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                    <h4 class="card-title">Name: {shoe.name}</h4>
-                                    <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                    <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                    <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                    <p class="card-title">Description: {shoe.story}</p>
-                                    <p class="card-title">Gender: {shoe.gender}</p>
+                                    <h3 className="card-title">Brand: {shoe.brand}</h3>
+                                    <h4 className="card-title">Name: {shoe.name}</h4>
+                                    <h5 className="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                    <h5 className="card-title">Color: {shoe.colorway}</h5>
+                                    <h5 className="card-title">Release date: {shoe.releaseDate}</h5>
+                                    <p className="card-title">Description: {shoe.story}</p>
+                                    <p className="card-title">Gender: {shoe.gender}</p>
 
                                     <CardActions>
                                         <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
                                     </CardActions>
                                 </Card>
-
-                                // return <Box>
-                                // <img src={shoe.image.thumbnail} />
-                                // <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                // <h4 class="card-title">Name: {shoe.name}</h4>
-                                // <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                // <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                // <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                // <p class="card-title">Description: {shoe.story}</p>
-                                // <p class="card-title">Gender: {shoe.gender}</p>
-                                // </Box>
-
                             })}
-
-                            {/* Original */}
-                            {/* {this.state.shoes && this.state.shoes.results.map(shoe => {
-                                    return <Box>
-                                    <Box>
-                                        <img src={shoe.image.thumbnail} />
-                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                        <h4 class="card-title">Name: {shoe.name}</h4>
-                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                        <p class="card-title">Description: {shoe.story}</p>
-                                        <p class="card-title">Gender: {shoe.gender}</p>
-                                    </Box>
-                                </Box>
-                                    // <tr>
-                                    //     <td>{shoe.name}</td>
-                                    //     <td>{shoe.estimatedMarketValue}</td>
-                                    //     <td>{shoe.story}</td>
-                                    // </tr>
-                                    
-                                })} */}
                         </form>
                     </Grid>
                 </Grid>
