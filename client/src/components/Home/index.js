@@ -15,6 +15,9 @@ import Vans from '../../assets/vans.jpg';
 
 const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 
+
+// 67cc3e5620msh921bc12ae0b5bb0p105a12jsn2a758b84426e // Shane key backup 
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -267,11 +270,6 @@ class Home extends React.Component {
                                     // </tr>
                                     
                                 })} */}
-
-
-                            })}
-
-                        </form>
                     </Grid>
                 </Grid>
             </Box>

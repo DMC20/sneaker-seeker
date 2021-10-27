@@ -118,14 +118,11 @@ export default function SignInSide() {
                 sx={{ mt: 3, mb: 2 }}
               />
               </form>
-
-              />
               {error ? (
               <div>
                 <p className="error-text">The provided credentials are incorrect</p>
               </div>
             ) : null}
-              </form>
 
               <Grid container>
                 <Grid item>
@@ -134,11 +131,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
               </Grid>
-
-
             </Box>
-
-          </Box>
         </Grid>
       </Grid>
     </ThemeProvider>
