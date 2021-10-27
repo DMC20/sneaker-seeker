@@ -21,14 +21,6 @@ const kkey = "c9dbe94c4bmsh0b9ffd19221424ep103c31jsne8f63707ae88"
 // 67cc3e5620msh921bc12ae0b5bb0p105a12jsn2a758b84426e // Shane key backup 
 
 
-var cardStyle = {
-    display: 'block',
-    width: '40vw',
-    transitionDuration: '0.3s',
-    height: '80vw',
-    justifyContent: 'center'                         
-}
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -225,7 +217,7 @@ class Home extends React.Component {
                                 console.log(shoes)
                                 console.log(shoe.id)
                                 return( 
-                                <Card style={cardStyle} elevation={5} xs={12} sm={6} md={3}
+                                <Card elevation={5} xs={12} sm={6} md={3}
                                     spacing={3}
                                 sx={{ 
                                     display: 'flex',
