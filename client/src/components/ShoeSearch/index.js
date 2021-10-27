@@ -51,13 +51,13 @@ class SearchShoes extends React.Component  {
                                     return <div>
                                     <div>
                                         <img src={shoe.image.thumbnail} />
-                                        <h3 class="card-title">Brand: {shoe.brand}</h3>
-                                        <h4 class="card-title">Name: {shoe.name}</h4>
-                                        <h5 class="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
-                                        <h5 class="card-title">Color: {shoe.colorway}</h5>
-                                        <h5 class="card-title">Release date: {shoe.releaseDate}</h5>
-                                        <p class="card-title">Description: {shoe.story}</p>
-                                        <p class="card-title">Gender: {shoe.gender}</p>
+                                        <h3 className="card-title">Brand: {shoe.brand}</h3>
+                                        <h4 className="card-title">Name: {shoe.name}</h4>
+                                        <h5 className="card-title">Estimated cost: ${shoe.estimatedMarketValue}</h5>
+                                        <h5 className="card-title">Color: {shoe.colorway}</h5>
+                                        <h5 className="card-title">Release date: {shoe.releaseDate}</h5>
+                                        <p className="card-title">Description: {shoe.story}</p>
+                                        <p className="card-title">Gender: {shoe.gender}</p>
                                     </div>
                                 </div>
                                     // <tr>

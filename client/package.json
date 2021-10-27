@@ -12,6 +12,7 @@
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.4",
     "@risingstack/react-easy-state": "^6.3.0",
+    "@stripe/stripe-js": "^1.20.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -26,6 +27,7 @@
     "react-image-crop": "^9.0.4",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^3.4.4",
+    "stripe": "^8.184.0",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
