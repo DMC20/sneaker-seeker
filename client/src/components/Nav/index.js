@@ -25,7 +25,7 @@ const Nav = () => {
         marginLeft: 0,
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(3),
+          marginLeft: theme.spacing(1),
           width: 'auto',
         },
       }));
@@ -58,20 +58,18 @@ const Nav = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position='static' sx={{ bgcolor: 'text.primary' }}>
                 <Toolbar>
-                    <Typography variant='h1' sx={{ flexGrow: 4 }} class="header">
+                    <Typography variant='h4' sx={{ flexGrow: 4 }} className="header">
                         Sneaker Seeker
                     </Typography>
                     <Button color='inherit' component={Link} to='/'>Home</Button>
-                    <Button color='inherit' component={Link} to='/'>Shop All</Button>
                     <Button color='inherit' component={Link} to='/About'>About</Button>
-                   
+
                     <Button color='inherit' component={Link} to='/SignUp'>Sign Up</Button>
                     {Auth.loggedIn() ? (
-                          <Button color='inherit' component={Link} to='/SignIn'>Logout / signup</Button>
-                      ):
-                      
+                          <Button color='inherit' href='/' onClick={() => Auth.logout()}>Logout</Button>
+                      ):  
                       (
-                         <Button color='inherit' component={Link} to='/SignIn'>Login</Button>
+                         <Button color='inherit' component={Link} to='/Signin'>Sign In</Button>
                       )}
                     <Search>
                         <SearchIconWrapper>
@@ -82,7 +80,7 @@ const Nav = () => {
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
-                    <Button color='inherit' component={Link} to='/Cart' startIcon={<ShoppingCartIcon />} />
+                    <Button color='inherit' startIcon={<ShoppingCartIcon />} />
                 </Toolbar>
             </AppBar>
         </Box>

@@ -4,18 +4,12 @@ import reducers from "../../utils/reducers"
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import { positions } from '@mui/system';
 import AirJordan from '../../assets/air-jordan.jpg';
 import Yeezy from '../../assets/yeezy.jpg';
 import NikeDunk from '../../assets/nike-sb-dunk.jpeg';
-import CardHeader from '@mui/material/CardHeader';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Vans from '../../assets/vans.jpg';
 
 
@@ -145,7 +139,7 @@ class Home extends React.Component {
                     <Grid item xs={4}>
                         <Card xs={{ maxWidth: 400 }} elevation={3}>
                             <CardMedia
-                                class="air-jordan"
+                                className="air-jordan"
                                 component="img"
                                 alt="Air Jordan 1 OG Chicago"
                                 height="100%"
@@ -209,9 +203,9 @@ class Home extends React.Component {
 
                 </Grid>
 
-                <Grid container spacing='center' spacing={3}>
-                    <Grid item xs={4}>
-                        <h1 headerAlign="center">Search Result</h1>
+                <Grid container spacing='center' spacing={4}>
+                    <Grid item xs={3}>
+                        <h1 headeralign="center">Search Result</h1>
                         <form className="d-flex flex-column">
                             {shoes && shoes.results.map(shoe => {
                                 console.log(shoes)
@@ -224,6 +218,7 @@ class Home extends React.Component {
                                         src={shoe.image.thumbnail}
                                     />
                                     {/* <img src={shoe.image.thumbnail} /> */}
+
                                     <h2>{shoe.brand}</h2>
                                     <h3>Name:</h3>{shoe.name}
                                     <h3>Estimated cost:$</h3>{shoe.estimatedMarketValue}
@@ -231,6 +226,7 @@ class Home extends React.Component {
                                     <h3>Release date:</h3>{shoe.releaseDate}
                                     <h3>Description:</h3><p>{shoe.story}</p>
                                     <h3>Gender:</h3>{shoe.gender}
+
 
                                     <CardActions>
                                         <Button variant='contained' size='large' type='button' onClick={(e) => this.cart(shoe)}> Add to cart</Button>
@@ -271,6 +267,9 @@ class Home extends React.Component {
                                     // </tr>
                                     
                                 })} */}
+
+                            })}
+
                         </form>
                     </Grid>
                 </Grid>

@@ -10,6 +10,9 @@ import Home from './components/Home';
 import Nav from "./components/Nav";
 import SignInSide from './pages/SignIn';
 import SignUp from './pages/Signup';
+import Detail from './pages/Detail';
+import Auth from './utils/auth';
+import { Link } from "react-router-dom";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -35,6 +38,7 @@ function App() {
           <Route exact path='/About' component={About}/>
           <Route exact path='/SignIn' component={SignInSide} />
           <Route exact path='/SignUp' component={SignUp} />
+          <Route exact path="/products/:id" component={Detail} />
         </Switch>
         </>
         <Footer />
